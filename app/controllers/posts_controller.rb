@@ -1,0 +1,72 @@
+class PostsController < ApplicationController;
+    before_action :authenticate_user! 
+    
+    def index
+        @post = Post.all
+        render "index"
+    end
+        
+    
+    def destroy
+        
+        @post = Post.find(params[:id])
+        authorize @post
+        @post.destroy
+        flash[:alert] = "Post Deleted succesfully."
+        redirect_to user_root_path
+    
+    end
+
+    
+    def edit
+        
+        @post = Post.find(params[:id])
+        authorize @post
+        @post.update(title: params[:title],content:params[:description])
+        
+        if @post.valid?
+            @post.save
+            flash[:alert] = "Post updated succesfully."
+            redirect_to user_root_path
+        
+        else
+            flash[:alert] = "Validation error."
+            redirect_to post_path
+        end    
+        
+    
+    end
+
+    
+    def create 
+        @post = Post.new(post_params)
+        @post.title = params[:title]
+        @post.content = params[:description]
+        @post.user_id=current_user.id
+        @post.email = current_user.email
+        if @post.valid?
+            @post.save
+            flash[:alert] = "Post Created succesfully."
+            redirect_to user_root_path
+        else
+            flash[:alert] = "Validation error."
+            redirect_to user_root_path
+        end 
+    end
+
+   
+    def show
+        @post = Post.find(params[:id])
+        @title =  @post.title
+        @content =  @post.content
+        @id = params[:id]
+        authorize @post
+        @post = Post.all
+       render "update"
+    end
+    
+    private
+    def post_params
+      params.permit(:title, :content)
+    end
+end

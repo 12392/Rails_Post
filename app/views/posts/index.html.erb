@@ -1,0 +1,49 @@
+<div class="text-center">
+<h2> Create a Post </b>
+<br></br>
+<%= link_to 'log out', destroy_user_session_path, method: :delete, class: "btn btn-warning"%>
+</div>
+
+<form method = "POST" action ="/posts">
+<%= token_tag %>
+<div  class ="col-6" style = "margin : 0 auto ">
+
+<div class="mb-3">
+  <label for="titleid" class="form-label">Title</label>
+  <input name= "title" type="text" class="form-control" id="titleid">
+</div>
+
+<div class="mb-3">
+  <label for="descriptionid" class="form-label">Description</label>
+  <textarea name= "description" class="form-control" id="descriptionid" rows="3"></textarea>
+</div>
+
+<div class="text-center">
+<button type="Submit" class="btn btn-primary">Create</button>
+</div>
+
+</div>
+</form>
+
+<br></br>
+
+
+<div class="text-center">
+<h2> Created Post </b>
+<br></br>
+</div>
+
+
+
+<% @post.each do |post| %>
+  <div  class ="d-flex align-items-center justify-content-center">
+    <div class="card" style="width: 18rem; "margin : 0 auto;" >
+      <div class="card-body">
+        <h5 class="card-title"><%= post.title %></h5>
+        <p class="card-text"><%= post.content %>. <br></br> By - <%= post.email %> </p>
+        <a href="/posts/<%= post.id %>" data-method="DELETE" class="btn btn-danger">Delete</a>
+        <a href="/posts/<%= post.id %>" data-method="GET" class="btn btn-warning">Update</a>
+      </div>
+   </div>
+ </div>
+<% end %>
