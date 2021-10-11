@@ -43,7 +43,8 @@ class PostsController < ApplicationController;
         @post.title = params[:title]
         @post.content = params[:description]
         @post.user_id=current_user.id
-        @post.email = current_user.email
+        #@post.email = current_user.email
+        
         if @post.valid?
             @post.save
             flash[:alert] = "Post Created succesfully."
@@ -51,7 +52,8 @@ class PostsController < ApplicationController;
         else
             flash[:alert] = "Validation error."
             redirect_to user_root_path
-        end 
+        end
+
     end
 
    

@@ -18,6 +18,7 @@ class PostPolicy < ApplicationPolicy
     
   end
   
+
   def show?
    if @post.user_id == @user.id
     true

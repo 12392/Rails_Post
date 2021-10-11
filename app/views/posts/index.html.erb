@@ -40,7 +40,7 @@
     <div class="card" style="width: 18rem; "margin : 0 auto;" >
       <div class="card-body">
         <h5 class="card-title"><%= post.title %></h5>
-        <p class="card-text"><%= post.content %>. <br></br> By - <%= post.email %> </p>
+        <p class="card-text"><%= post.content %>. <br></br> By - <%= post.user.email %> </p>
         <a href="/posts/<%= post.id %>" data-method="DELETE" class="btn btn-danger">Delete</a>
         <a href="/posts/<%= post.id %>" data-method="GET" class="btn btn-warning">Update</a>
       </div>
