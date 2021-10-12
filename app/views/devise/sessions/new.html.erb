@@ -1,30 +1,50 @@
-<div  class ="col-6" style = "margin : 0 auto ">
-<h2>Log in</h2>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field mb-3">
-    <%= f.label :email, class: "form-label" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "form-control w-75" %>
+<div class="col-6" style="margin: 100px auto 100px auto">
+  <h2
+    style="text-align: center"
+    class="text-white bg-dark"
+    style="text-align: center"
+  >
+    Log in
+  </h2>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do
+  |f| %>
+
+  <div
+    class="field mb-2"
+    style="margin-left: 250px; margin-right: 300px; width: 50%"
+  >
+    <%= f.label :email, class: "form-label text-white bg-dark" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:
+    "form-control w-75" %>
   </div>
 
-  <div class="field mb-3">
-    <%= f.label :password, class: "form-label" %><br />
-    <%= f.password_field :password, autocomplete: "current-password", class: "form-control w-75" %>
+  <div
+    class="field mb-3"
+    style="margin-left: 250px; margin-right: 300px; width: 50%"
+  >
+    <%= f.label :password, class: "form-label text-white bg-dark" %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class:
+    "form-control w-75" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
-     <%= f.check_box :remember_me %>
-     <%= f.label :remember_me %>
-     
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit  "Log in", class: "btn btn-primary"  %>
-  
+  <div
+    class="field"
+    style="margin-left: 250px; margin-right: 300px; width: 50%"
+  >
+    <%= f.check_box :remember_me %> <%= f.label :remember_me,class:"text-white
+    bg-dark" %>
   </div>
-<% end %>
-<%= render "devise/shared/links" %>
+  <% end %>
+  <div
+    class="actions"
+    style="margin-left: 250px; margin-right: 300px; width: 50%"
+  >
+    <%= f.submit "Log in", class: "btn btn-primary" %>
+  </div>
+
+  <% end %>
+  <div style="margin-left: 250px; margin-right: 300px; width: 50%">
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
-
-

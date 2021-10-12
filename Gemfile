@@ -35,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
  gem "pundit"
  gem 'bigdecimal', '1.3.5'
 
+ gem 'will_paginate' , '~> 3.0.12'
+ gem 'will_paginate-bootstrap', '~> 1.0.2'
+ gem 'will_paginate-bootstrap-style','~> 0.2.4'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

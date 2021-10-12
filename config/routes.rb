@@ -1,19 +1,15 @@
 Rails.application.routes.draw do
-
-
+  
   devise_for :users
   resources :articles
   resources :posts
-
-  #post '/updateform' to: 'posts#updateform'
- 
-  #root 'posts#index'
-
-
+  
+  get '/search' , to: "posts#search"
+  
   devise_scope :user do
     root to: "devise/sessions#new"
   end
- #get '/user' => "posts#index", :as => :user_root
+  
   get '/posts' => "posts#index", :as => :user_root
   
   # The priority is based upon order of creation: first created -> highest priority.
