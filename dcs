@@ -1,0 +1,17 @@
+[33mcommit 9632a03acc3bf54170e0ace68a04c9248a69b034[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: 12392 <suryanshgupta133@gmail.com>
+Date:   Tue Oct 12 18:22:52 2021 +0530
+
+    [ADD] Implement Bootstrap and Implement Pagination using gem will_paginate
+
+[33mcommit 8f6c704b09094e3c4bfd99347d52a81986b186d9[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: 12392 <suryanshgupta133@gmail.com>
+Date:   Mon Oct 11 18:14:39 2021 +0530
+
+    Implemented FactoryGirl
+
+[33mcommit 1080713c458ec09794ca4792819b87ac3dae284a[m
+Author: suryanshgupta133@gmail.com <suryanshgupta133@gmail.com>
+Date:   Fri Oct 8 18:11:56 2021 +0530
+
+    [ADD] Authentication using Devise and Authourization using Pundit"

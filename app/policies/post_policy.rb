@@ -11,27 +11,21 @@ class PostPolicy < ApplicationPolicy
   end
   
   def edit?
-    
     if @post.user_id == @user.id
       true
      end
-  
   end
   
   def show?
-   
-    if @post.user_id == @user.id
+   if @post.user_id == @user.id
       true
     end
-  
   end
   
   def destroy?
-    
     if @post.user_id == @user.id
       true
     end
-   
   end
 
 end
