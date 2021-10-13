@@ -51,9 +51,7 @@ class PostsController < ApplicationController;
         @content =  @post.content
         @id = params[:id]
         authorize @post
-        #@post = Post.all
         render "update"
-        #render json: @post
     end
     
     def search
@@ -68,7 +66,6 @@ class PostsController < ApplicationController;
         @title =  @post.title
         @content =  @post.content
         @id = params[:id]
-        #render json: @post
         render "confirmationPostdelete"
     end
     
