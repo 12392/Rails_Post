@@ -51,14 +51,25 @@ class PostsController < ApplicationController;
         @content =  @post.content
         @id = params[:id]
         authorize @post
-        @post = Post.all
+        #@post = Post.all
         render "update"
+        #render json: @post
     end
     
     def search
         @query = params[:query]
         @post = Post.where("posts.title LIKE ?",["%#{@query}%"]).paginate(page: params[:page], per_page: 4)
         render "index"
+    end
+
+    def delete
+        
+        @post = Post.find(params[:id])
+        @title =  @post.title
+        @content =  @post.content
+        @id = params[:id]
+        #render json: @post
+        render "confirmationPostdelete"
     end
     
     

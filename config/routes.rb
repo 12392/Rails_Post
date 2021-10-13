@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
   
   devise_for :users
-  resources :articles
+  #resources :articles
   resources :posts
   
   get '/search' , to: "posts#search"
+  get '/destroy/:id' , to: "posts#delete"
   
   devise_scope :user do
     root to: "devise/sessions#new"
   end
-  
+
   get '/posts' => "posts#index", :as => :user_root
   
   # The priority is based upon order of creation: first created -> highest priority.

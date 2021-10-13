@@ -1,0 +1,9 @@
+<div class="text-center text-white bg-dark">
+  <br> </br>
+  <h1>Are you Sure you want to destroy the post below</h1>
+  <br> </br>
+  <h2><%= @title %></h2>
+  <p class="lead"><%= @content %></p>
+  <br> </br>
+  <a href="/posts/<%= @id  %>" data-method="DELETE" class="btn btn-danger">Delete</a>
+</div>
