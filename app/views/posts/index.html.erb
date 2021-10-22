@@ -1,67 +1,76 @@
 <%= render "header" %>
-<div class="p-3 mb-2 bg-dark text-dark padding-0">
+  <div class="p-3 mb-2 bg-dark text-dark padding-0">
 
-<div class=" text-center text-white bg-dark">
-<h2> Create a Post </b>
-</div>
+    <div class=" text-center text-white bg-dark">
+      <h2> Create a Post </b>
+    </div>
 
-<form method = "POST" action ="/posts">
-<%= token_tag %>
+    <form method="POST" action="/posts">
+      <%= token_tag %>
 
-<div  class ="col-6" style = "margin : 0 auto ">
+        <div class="col-6" style="margin : 0 auto ">
 
-<div class="mb-3">
-  <label for="titleid" class="form-label text-white bg-dark">Title</label>
-  <input name= "title" type="text" class="form-control " id="titleid">
-</div>
+          <div class="mb-3">
+            <label for="titleid" class="form-label text-white bg-dark">Title</label>
+            <input name="title" type="text" class="form-control " id="titleid">
+          </div>
 
-<div class="mb-3">
-  <label for="descriptionid" class="form-label text-white bg-dark">Description</label>
-  <textarea name= "description" class="form-control" id="descriptionid" rows="3"></textarea>
-</div>
+          <div class="mb-3">
+            <label for="descriptionid" class="form-label text-white bg-dark">Description</label>
+            <textarea name="description" class="form-control" id="descriptionid" rows="3"></textarea>
+          </div>
 
-<div class="text-center">
-<button type="Submit" class="btn btn-primary">Create</button>
-</div>
+          <div class="text-center">
+            <button type="Submit" class="btn btn-primary">Create</button>
+          </div>
 
-</div>
-</form>
+        </div>
+    </form>
 
-<br></br>
+    <br></br>
 
-<div class="text-center text-white bg-dark">
-<h2> Created Post </b>
-<br></br>
-</div>
+    <div class="text-center text-white bg-dark">
+      <h2> Created Post </b>
+        <br></br>
+    </div>
 
-<div class="container mt-4">
-<div class="row">
+    <div class="container mt-4">
+      <div class="row">
 
-<% @post.each do |post| %>
-  <div class="col-auto mb-3" > 
-    <div class="card h-100 card-body" style="width: 18rem" >
-      <div class="card-body ">
-        <h5 class="card-title"><%= post.title %></h5>
-        <p class="card-text text-truncate"><%= post.content %>. <br></br> By - <%= post.user.email %> </p>
-        <% if user_signed_in? %>
-        <% if post.user_id == current_user.id %>
-        <a href="/destroy/<%= post.id %>" data-method="GET" class="btn btn-danger">Delete</a>
-        <a href="/posts/<%= post.id %>" data-method="GET" class="btn btn-warning">Update</a>
-        <% else %>
-        <p class="card-text"> Member of Post App</p>
-        <% end %>
-        <% end %>
+        <% @post.each do |post| %>
+          <div class="col-auto mb-3">
+            <div class="card h-100 card-body" style="width: 18rem">
+              <div class="card-body ">
+                <h5 class="card-title">
+                  <%= post.title %>
+                </h5>
+                <p class="card-text text-truncate">
+                  <%= post.content %>. <br></br> By - <%= post.user.email %>
+                </p>
+                <% if user_signed_in? %>
+                  <% if post.user_id==current_user.id %>
+                    <a href="/showPost/<%= post.id %>" data-method="GET" class="btn btn-dark">Show Post</a>
+                    <br> </br>
+                    <a href="/destroy/<%= post.id %>" data-method="GET" class="btn btn-danger">Delete</a>
+                    <a href="/posts/<%= post.id %>" data-method="GET" class="btn btn-warning">Update</a>
+                    <% else %>
+                      <a href="/showPost/<%= post.id %>" data-method="GET" class="btn btn-dark">Show Post</a>
+                      <br> </br>
+                      <p class="card-text"> Member of Post App</p>
+                      <% end %>
+                        <% end %>
 
+              </div>
+            </div>
+          </div>
+
+
+          <% end %>
       </div>
-   </div>
- </div>
+    </div>
+    <div class="bg-dark" style="margin-left: 130px; margin-right: 250px; width: 50%">
+      <%= will_paginate @post, list_classes: %w(pagination bg-dark justify-content-end ) ,previous_label: "Previous" ,
+        next_label: "Next" %>
+    </div>
 
-
-<% end %>
-</div>
-</div>
-<div class = "bg-dark" style="margin-left: 130px; margin-right: 250px; width: 50%">
-  <%= will_paginate @post, list_classes: %w(pagination bg-dark justify-content-end ) ,previous_label: "Previous" , next_label: "Next" %>
-</div>
-
-</div>
+  </div>

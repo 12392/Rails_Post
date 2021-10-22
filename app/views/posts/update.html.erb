@@ -1,28 +1,27 @@
 <div class="p-3 mb-2 bg-dark text-dark padding-0">
 
-<div class="text-center text-white bg-dark">
-<h2> Update  a Post <h2>
+  <div class="text-center text-white bg-dark">
+    <h2> Update a Post <h2>
+  </div>
+
+  <form method="GET" action="/posts/<%= @id %>/edit">
+    <input type="hidden" value="<%= @id  %>">
+    <%= token_tag %>
+      <div class="col-6" style="margin : 0 auto ">
+
+        <div class="mb-3">
+          <label for="titleid" class="form-label text-white bg-dark">Title</label>
+          <input name="title" type="text" class="form-control " id="titleid" value="<%= @title %>">
+        </div>
+
+        <div class="mb-3">
+          <label for="descriptionid" class="form-label text-white bg-dark">Description</label>
+          <textarea name="description" class="form-control" id="descriptionid" rows="3"><%= @content %>  </textarea>
+        </div>
+
+        <button type="Submit" class="btn btn-danger">Update</button>
+        <%= link_to 'Back' , posts_path, method: :get, class: "btn btn-warning" %>
+
+      </div>
+  </form>
 </div>
-
-<form method = "GET" action ="/posts/<%= @id %>/edit">
-<input type ="hidden" value = "<%= @id  %>">
-<%= token_tag %>
-<div  class ="col-6" style = "margin : 0 auto ">
-
-<div class="mb-3">
-  <label for="titleid" class="form-label text-white bg-dark">Title</label>
-  <input name= "title" type="text" class="form-control " id="titleid" value="<%= @title %>">
-</div>
-
-<div class="mb-3">
-  <label for="descriptionid" class="form-label text-white bg-dark">Description</label>
-  <textarea name= "description" class="form-control" id="descriptionid"  rows="3"><%= @content %>  </textarea>
-</div>
-
-<button type="Submit" class="btn btn-danger">Update</button>
-<%= link_to 'Back', posts_path, method: :get, class: "btn btn-warning"%>
-
-</div>
-</form>
-</div>
-

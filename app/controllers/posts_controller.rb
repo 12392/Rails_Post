@@ -61,13 +61,25 @@ class PostsController < ApplicationController;
     end
 
     def delete
-        
         @post = Post.find(params[:id])
         @title =  @post.title
         @content =  @post.content
         @id = params[:id]
         render "confirmationPostdelete"
     end
+    
+    def showPost
+        
+        @post = Post.find(params[:id])
+        @comment = Comment.where(post_id: params[:id]).all.order("created_at DESC").paginate(page: params[:page], per_page: 4)
+        @title =  @post.title
+        @content =  @post.content
+        @id = params[:id]
+        @userName = @post.user.email
+        render "showPost"
+
+    end
+
     
     
     private

@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
  gem 'devise'
  gem "pundit"
  gem 'bigdecimal', '1.3.5'
+ gem 'jquery-rails'
 
  gem 'will_paginate' , '~> 3.0.12'
  gem 'will_paginate-bootstrap', '~> 1.0.2'

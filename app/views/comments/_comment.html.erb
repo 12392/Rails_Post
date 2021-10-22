@@ -1,0 +1,13 @@
+<div class="card text-dark bg-light mb-3" style="max-width: 70rem; margin-left:  200px;" id="card-<%= @comment.id %>">
+    <h5 class="card-header">
+        <%= @comment.email %>
+    </h5>
+    <div class="card-body">
+        <p class="card-text">
+            <%= @comment.comment %>
+        </p>
+        <a href="/comments/<%= @comment.id %>" data-method="DELETE" class="btn btn-danger" data-remote="true"
+            id='deletePost'>Delete</a>
+        <a href="/comments/<%=@comment.id %>/edit" data-method="GET" data-remote="true" class="btn btn-warning">Edit</a>
+    </div>
+</div>

@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   
   devise_for :users
   resources :posts
+  resources :comments
   
   get '/search' , to: "posts#search"
   get '/destroy/:id' , to: "posts#delete"
+  get '/showPost/:id' , to: "posts#showPost"
   
   devise_scope :user do
     root to: "devise/sessions#new"

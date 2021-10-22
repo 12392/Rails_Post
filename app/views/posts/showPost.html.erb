@@ -1,0 +1,61 @@
+<div id=test class="text-center text-white bg-dark">
+    <br> </br>
+    <h1>Welcome to the Post</h1>
+    <br> </br>
+    <h2>
+        <%= @title %>
+    </h2>
+    <p class="lead">
+        <%= @content %>
+    </p>
+    <br> </br>
+
+    <form id="AddComment" name="AddComment" method="POST" action="/comments" data-remote="true">
+        <%= token_tag %>
+            <input type="hidden" name="postId" value="<%= @id  %>">
+            <input type="hidden" name="userName" value="<%= current_user.email %>">
+            <input type="hidden" name="postTitle" value=" <%= @title %>">
+            <input type="hidden" name="postContent" value="<%= @content %>">
+
+            <div class="col-6" style="margin : 0 auto ">
+
+                <div class="mb-3">
+                    <textarea name="comment" class="form-control" id="descriptionid"
+                        placeholder="Add a comment to a post" rows="3"></textarea>
+                </div>
+
+                <div class="text-center">
+                    <button type="Submit" id='create' class="btn btn-primary" data-remote="true">Add Comment</button>
+                    <%= link_to 'Back' , posts_path, method: :get, class: "btn btn-light" %>
+                </div>
+
+            </div>
+    </form>
+
+</div>
+<br> </br>
+<div id='display'>
+    <% @comment.each do |comment| %>
+        <div class="card text-dark bg-light mb-3" style="max-width: 70rem; margin-left:  200px;"
+            id="card-<%= comment.id %>">
+            <h5 class="card-header">
+                <%= comment.email %>
+            </h5>
+            <div class="card-body">
+                <p class="card-text">
+                    <%= comment.comment %>
+                </p>
+                <a href="/comments/<%= comment.id %>" data-method="DELETE" class="btn btn-danger" data-remote="true"
+                    id='deletePost'>Delete</a>
+                <a href="/comments/<%= comment.id %>/edit" data-method="GET" data-remote="true"
+                    class="btn btn-warning">Edit</a>
+            </div>
+        </div>
+
+        <% end %>
+            <div class="bg-dark" style="margin-left: 612px; max-width: 70rem;">
+                <%= will_paginate @comment, list_classes: %w(pagination bg-darkjustify-content-end),
+                    previous_label: "Previous" , next_label: "Next" %>
+            </div>
+
+</div>
