@@ -14,9 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-$(document).ready(function () {
-  $("#create").click(function (e) {
-    alert("click me");
-  });
-});

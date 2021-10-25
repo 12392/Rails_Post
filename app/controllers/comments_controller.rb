@@ -1,10 +1,5 @@
 class CommentsController < ApplicationController
-    
-    def index
-        @comment = Comment.all
-        render "posts/showPost"
-    end
-    
+    before_action :authenticate_user!
     
     def create 
         @comment = Comment.new(comment_params)
@@ -21,6 +16,7 @@ class CommentsController < ApplicationController
     
     def destroy
         @comment = Comment.find(params[:id])
+        authorize @comment
         respond_to do |format|
             if @comment.destroy
              format.js
@@ -44,6 +40,7 @@ class CommentsController < ApplicationController
 
     def update
         @comment = Comment.find(params[:id])
+        authorize @comment
         @comment.update(comment: params[:comment])
         respond_to do |format|
             if @comment.valid? and @comment.save
@@ -57,5 +54,4 @@ class CommentsController < ApplicationController
     def comment_params
       params.permit(:comment)
     end
-
 end

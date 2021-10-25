@@ -11,10 +11,17 @@ class CommentPolicy < ApplicationPolicy
   end
  
   def destroy?
-    if current_user.email == @comment.email
+    if @user.email == @comment.email  
+      true
+    elsif @user.email == @comment.post.user.email
       true
     end
- 
+  end
+
+  def update?
+    if @user.email == @comment.email
+      true
+    end
   end
 
 

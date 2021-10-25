@@ -86,5 +86,4 @@ class PostsController < ApplicationController;
     def post_params
       params.permit(:title, :content)
     end
-
 end

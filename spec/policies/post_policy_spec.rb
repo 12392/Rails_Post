@@ -18,6 +18,5 @@ permissions :destroy?, :show? ,:edit? do
       post = FactoryGirl.create(:post,title:"post100", content:"hello world good morning",user:user, email:user.email)
       expect(subject).not_to permit(user2,post)
     end
-  
   end
 end

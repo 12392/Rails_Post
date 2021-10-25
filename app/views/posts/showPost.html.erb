@@ -45,10 +45,18 @@
                 <p class="card-text">
                     <%= comment.comment %>
                 </p>
-                <a href="/comments/<%= comment.id %>" data-method="DELETE" class="btn btn-danger" data-remote="true"
-                    id='deletePost'>Delete</a>
-                <a href="/comments/<%= comment.id %>/edit" data-method="GET" data-remote="true"
-                    class="btn btn-warning">Edit</a>
+                <% if current_user.email==comment.email %>
+                    <a href="/comments/<%= comment.id %>" data-method="DELETE" class="btn btn-danger" data-remote="true"
+                        id='deletePost'>Delete</a>
+                    <a href="/comments/<%= comment.id %>/edit" data-method="GET" data-remote="true"
+                        class="btn btn-warning">Edit</a>
+                    <% elsif current_user.email==comment.post.user.email %>
+                        <a href="/comments/<%= comment.id %>" data-method="DELETE" class="btn btn-danger"
+                            data-remote="true" id='deletePost'>Delete</a>
+                        <% end %>
+
+
+
             </div>
         </div>
 
