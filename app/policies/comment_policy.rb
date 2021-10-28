@@ -23,6 +23,4 @@ class CommentPolicy < ApplicationPolicy
       true
     end
   end
-
-
 end

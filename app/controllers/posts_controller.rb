@@ -37,6 +37,7 @@ class PostsController < ApplicationController;
         
         if @post.valid?
             @post.save
+            PostMailer.post_created(current_user, @post).deliver_later
             flash[:alert] = "Post Created succesfully."
             redirect_to user_root_path
         else
