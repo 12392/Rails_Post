@@ -5,6 +5,25 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.consider_all_requests_local       = false
+  config.action_controller.perform_caching = true
+  config.action_mailer.delivery_method = :smtp
+   host = 'localhost:3000' #replace with your own url
+  config.action_mailer.default_url_options = { host: host }
+
+# SMTP settings for gmail
+config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :domain               =>'gmail.com',
+  :user_name            => "suryanshgupta133@gmail.com",
+  :password             => "wvbdexxsduwlbwde",
+  :authentication       => "plain",
+  :enable_starttls_auto => true
+}
+
 
   # Do not eager load code on boot.
   config.eager_load = false
