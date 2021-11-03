@@ -12,7 +12,7 @@ class PostMailer < ApplicationMailer
 
     mail(
       from: "support@postApp.com",
-      to:   "		rajatbajpai33@gmail.com",
+      to:   "suryanshgupta133@gmail.com",
       subject: "New Post Created"
     ) 
   end

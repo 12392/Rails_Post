@@ -32,9 +32,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Unicorn as the app se
 # gem 'unicorn'
  gem 'devise'
+ #gem "devise_mailchimp"
  gem "pundit"
  gem 'bigdecimal', '1.3.5'
  gem 'jquery-rails'
+ gem 'faraday'
 
  gem 'will_paginate' , '~> 3.0.12'
  gem 'will_paginate-bootstrap', '~> 1.0.2'
