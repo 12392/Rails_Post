@@ -7,10 +7,6 @@ Rails.application.routes.draw do
   get '/search' , to: "posts#search"
   get '/destroy/:id' , to: "posts#delete"
   get '/showPost/:id' , to: "posts#showPost"
-  #devise_for :user, controllers: { registrations: "user/registrations" }
-
-  # config/routes.rb
-  #devise_for :user, controllers: { registrations: "user/registrations" }
   
   devise_scope :user do
     root to: "devise/sessions#new"

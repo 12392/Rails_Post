@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
         @comment.email = params[:userName] 
             respond_to do |format|
                 if @comment.valid? and @comment.save
-                    CommentMailer.comment_created(@comment).deliver_later
                     format.js
                 end
             end

@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
     dc = 'us5'
     unique_id = "e86db98f63"
     url = "https://#{dc}.api.mailchimp.com/3.0/lists/#{unique_id}/members"
-    api_key = "5f459ef90384d0f3413b2c2b1b67e89d-us5"
+    api_key = ENV['API_KEY']
       
           user_details = {
             email_address: self.email,
@@ -26,18 +26,5 @@ class User < ActiveRecord::Base
           end
       
           response_body = JSON.parse(response.body)
-      
-          # Check if the subscription is successful
-          if response.status == 200
-            # render json: {
-            #   status: response.status,
-            #   message: "#{user_details[:email_address]} has been added to the mailing list"
-            # }
-          else
-            # render json: {
-            #   status: response.status,
-            #   message: response_body["detail"]
-            # }
-          end
       end
 end

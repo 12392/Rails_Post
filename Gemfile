@@ -23,20 +23,19 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-#gem 'rspec-rails'
-#gem 'factory_girl_rails', '~> 4.5'
 
 # Use ActiveModel has_secure_passwordF
 #gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app se
 # gem 'unicorn'
+ 
  gem 'devise'
- #gem "devise_mailchimp"
  gem "pundit"
  gem 'bigdecimal', '1.3.5'
  gem 'jquery-rails'
  gem 'faraday'
+ gem 'dotenv-rails'
 
  gem 'will_paginate' , '~> 3.0.12'
  gem 'will_paginate-bootstrap', '~> 1.0.2'

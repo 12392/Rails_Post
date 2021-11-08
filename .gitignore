@@ -15,3 +15,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore user.rb 
+/app/models/user.rb
+
+# Ignore .env
+/.env

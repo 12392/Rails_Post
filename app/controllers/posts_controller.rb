@@ -37,7 +37,6 @@ class PostsController < ApplicationController;
         
         if @post.valid?
             @post.save
-            PostMailer.post_created(current_user, @post).deliver_later
             flash[:alert] = "Post Created succesfully."
             redirect_to user_root_path
         else
@@ -70,7 +69,6 @@ class PostsController < ApplicationController;
     end
     
     def showPost
-        
         @post = Post.find(params[:id])
         @comment = Comment.where(post_id: params[:id]).all.order("created_at DESC").paginate(page: params[:page], per_page: 4)
         @title =  @post.title
@@ -78,10 +76,7 @@ class PostsController < ApplicationController;
         @id = params[:id]
         @userName = @post.user.email
         render "showPost"
-
     end
-
-    
     
     private
     def post_params
