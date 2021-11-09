@@ -6,22 +6,19 @@ RSpec.describe CommentPolicy, type: :policy do
 
   permissions :update? do
     it " access granted if user_email is equal to comment_email" do
-      user = FactoryGirl.create(:user)
       comment = FactoryGirl.create(:comment)
-      expect(subject).to permit(user,comment)
+      expect(subject).to permit(comment.user,comment)
     end
     it " access not granted if user_email is not equal to comment_email" do
-      user = FactoryGirl.create(:user)
       comment = FactoryGirl.create(:comment , email:"example@test4.com")
-      expect(subject).not_to permit(user,comment)
+      expect(subject).not_to permit(FactoryGirl.create(:user),comment)
     end
   end
  
   permissions :destroy? do
     it " access granted if user_email is equal to comment_email" do
-      user = FactoryGirl.create(:user)
       comment = FactoryGirl.create(:comment)
-      expect(subject).to permit(user,comment)
+      expect(subject).to permit(comment.user,comment)
     end
     it " access not granted if user_email is not equal to comment_email" do
       user = FactoryGirl.create(:user)

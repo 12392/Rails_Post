@@ -11,7 +11,7 @@ class CommentPolicy < ApplicationPolicy
   end
  
   def destroy?
-    if @user.email == @comment.email  
+    if @user == @comment.user  
       true
     elsif @user.email == @comment.post.user.email
       true
@@ -19,7 +19,7 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def update?
-    if @user.email == @comment.email
+    if @user == @comment.user
       true
     end
   end

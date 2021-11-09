@@ -8,4 +8,5 @@ class Comment < ActiveRecord::Base
     end
 
     validates :comment, presence: true, length: { minimum: 1 }
+    validates :post, presence: true
 end
