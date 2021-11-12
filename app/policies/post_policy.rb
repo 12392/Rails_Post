@@ -27,5 +27,4 @@ class PostPolicy < ApplicationPolicy
       true
     end
   end
-
 end

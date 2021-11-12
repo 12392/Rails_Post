@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   get '/search' , to: "posts#search"
   get '/destroy/:id' , to: "posts#delete"
-  get '/showPost/:id' , to: "posts#showPost"
+  get '/showPost/:id' , as: "showPost" , to: "posts#showPost"
   
   devise_scope :user do
     root to: "devise/sessions#new"
