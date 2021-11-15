@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
         @comment.post_id= params[:postId]
         @comment.comment = params[:comment] 
         @comment.email = params[:userName] 
-        @comment.user_id=current_user.id
+        @comment.user_id = current_user.id
             respond_to do |format|
                 if @comment.valid? and @comment.save
                     format.js

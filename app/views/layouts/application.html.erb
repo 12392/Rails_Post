@@ -4,15 +4,13 @@
 
 <head>
   <title>Post App</title>
-  <%= stylesheet_link_tag 'application' , media: 'all' , 'data-turbolinks-track'=> true %>
-    <%= javascript_include_tag 'application' , 'data-turbolinks-track'=> true %>
-      <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application' , media: 'all' , 'data-turbolinks-track'=> true %> <%=
+      javascript_include_tag 'application' , 'data-turbolinks-track'=> true %> <%= csrf_meta_tags %>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
 </head>
 
-<body class="bg-dark text-dark" style="width:100%; height:100vh">
-
+<body class="bg-dark text-dark" style="width: 100%; height: 100vh">
   <% if notice %>
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
       <p>
@@ -21,7 +19,6 @@
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <% end %>
-
       <% if alert %>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
           <p>
@@ -36,7 +33,6 @@
             crossorigin="anonymous"></script>
 
           <%= yield %>
-
 </body>
 
 </html>

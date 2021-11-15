@@ -14,3 +14,4 @@ FactoryGirl.define do
         comment "jon snow winter is comming"
     end
   end
+  
