@@ -71,10 +71,11 @@ class PostsController < ApplicationController;
     def showPost
         @post = Post.find(params[:id])
         page = params[:page]
-        page = Integer(page)
+        
         @comment = Comment.where(post_id: params[:id]).all.order("created_at DESC").paginate(page: params[:page], per_page: 4)
         
-        if @comment.length == 0 
+        if @comment.length == 0 and page != nil
+            page = Integer(page)
             page = (page - 1) > 1 ? (page - 1) : 1 
             @title =  @post.title
             @content =  @post.content
