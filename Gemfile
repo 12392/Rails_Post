@@ -40,6 +40,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
  gem 'will_paginate' , '~> 3.0.12'
  gem 'will_paginate-bootstrap', '~> 1.0.2'
  gem 'will_paginate-bootstrap-style','~> 0.2.4'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -48,6 +49,8 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails', '~> 4.5'
+  gem 'resque'
+  #gem 'sinatra', github: 'sinatra/sinatra', branch: 'master'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   #gem 'web-console', '~> 2.0'

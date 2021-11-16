@@ -1,3 +1,4 @@
+require 'resque/server'
 Rails.application.routes.draw do
   
   devise_for :users
@@ -10,6 +11,10 @@ Rails.application.routes.draw do
   
   devise_scope :user do
     root to: "devise/sessions#new"
+  end
+
+  authenticate :user do
+    mount Resque::Server.new, at: '/jobs'
   end
 
   get '/posts' => "posts#index", :as => :user_root
